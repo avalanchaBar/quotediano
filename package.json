@@ -1,0 +1,17 @@
+{
+  "name": "quotediano-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx @11ty/eleventy --serve",
+    "cms": "npx decap-server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6",
+    "decap-server": "^3.10.0"
+  }
+}

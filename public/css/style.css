@@ -1,0 +1,235 @@
+
+  :root{
+    --black:#111111;
+    --white:#ffffff;
+    --paper:#fafafa;
+    --gray-bg:#f2f2f2;
+    --gray-mid:#9a9a9a;
+    --gray-line:#dcdcdc;
+    --gray-line-soft:#ececec;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  body{
+    background:var(--white);
+    color:var(--black);
+    font-family:'Inter', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .mono{ font-family:'Chivo Mono', monospace; letter-spacing:0.01em; }
+
+  .meta-bar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px 40px;
+    border-bottom:1px solid var(--gray-line);
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--gray-mid);
+  }
+  .meta-bar span.mono{ letter-spacing:0.02em; }
+  .meta-nav{ display:flex; gap:26px; }
+  .meta-nav a{
+    color:var(--gray-mid);
+    text-decoration:none;
+    cursor:pointer;
+    transition:color 0.15s ease;
+    font-family:'Chivo Mono', monospace;
+  }
+  .meta-nav a:hover, .meta-nav a.current{ color:var(--black); }
+
+  .site-header{ padding:64px 40px 40px; border-bottom:1px solid var(--black); }
+  .site-title{ font-size:clamp(48px, 8vw, 96px); font-weight:800; letter-spacing:-0.03em; line-height:0.95; }
+  .site-title .accent{ font-weight:300; }
+  .site-sub{ margin-top:18px; max-width:560px; font-size:14px; font-weight:400; color:#555; line-height:1.6; }
+  .site-index-count{ margin-top:28px; font-size:11px; color:var(--gray-mid); display:flex; gap:28px; }
+
+  .section-label{ padding:24px 40px 0; display:flex; align-items:baseline; gap:14px; }
+  .section-label .num{ font-family:'Chivo Mono', monospace; font-size:11px; color:var(--gray-mid); }
+  .section-label .title{ font-size:12px; text-transform:uppercase; letter-spacing:0.12em; font-weight:600; }
+  .section-label .rule{ flex:1; height:1px; background:var(--gray-line); }
+
+  .catalog-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(220px, 1fr)); padding:20px 20px 80px; }
+  .entry-card{ border:1px solid transparent; padding:20px; cursor:pointer; transition:background 0.15s ease; position:relative; }
+  .entry-card:hover{ background:var(--paper); }
+  .entry-card:hover .entry-photo{ box-shadow:0 6px 18px rgba(0,0,0,0.06); }
+
+  .entry-photo{
+    width:100%; aspect-ratio:3/4; background:var(--gray-bg);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 2px 8px rgba(0,0,0,0.08); transition:box-shadow 0.15s ease;
+    margin-bottom:16px; overflow:hidden; position:relative;
+  }
+  .entry-photo{ position:relative; }
+  .entry-number-overlay{
+    position:absolute;
+    top:14px;
+    left:14px;
+    font-family:'Chivo Mono', monospace;
+    font-size:20px;
+    font-weight:500;
+    color:#fff;
+    letter-spacing:-0.01em;
+    z-index:2;
+    text-shadow:0 1px 3px rgba(0,0,0,0.5);
+  }
+
+  .entry-photo svg{ width:46%; height:46%; opacity:0.85; }
+
+  /* NUMBER now the dominant element */
+  .entry-number{
+    font-family:'Chivo Mono', monospace;
+    font-size:34px;
+    font-weight:500;
+    letter-spacing:-0.02em;
+    line-height:1;
+    margin-bottom:8px;
+  }
+  .entry-name{
+    font-size:12.5px;
+    font-weight:500;
+    color:#555;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin-bottom:4px;
+  }
+  .entry-year{ font-family:'Chivo Mono', monospace; font-size:10.5px; color:var(--gray-mid); margin-bottom:12px; }
+  .entry-icons{ display:flex; gap:8px; align-items:center; justify-content:space-between; }
+  .author-badge{ display:flex; align-items:center; gap:6px; }
+  .author-avatar{ width:26px; height:26px; border-radius:50%; background:var(--black); color:var(--white); display:flex; align-items:center; justify-content:center; font-family:'Chivo Mono', monospace; font-size:10px; font-weight:600; }
+  .author-label{ font-family:'Chivo Mono', monospace; font-size:9.5px; color:var(--gray-mid); text-transform:uppercase; letter-spacing:0.03em; }
+  .cat-icon{ width:28px; height:28px; display:flex; align-items:center; justify-content:center; border:1px solid var(--gray-line); border-radius:3px; }
+  .cat-icon svg{ width:16px; height:16px; stroke:var(--black); fill:none; }
+  .material-symbols-outlined{ font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24; font-size:18px; color:var(--black); line-height:1; }
+  .entry-icons{ flex-direction:row-reverse; }
+
+  /* ---------- DETAIL / FICHA ---------- */
+  .ficha-wrap, .manifiesto-wrap{ display:none; padding:40px; }
+  .ficha-wrap.active, .manifiesto-wrap.active{ display:block; }
+  .catalog-wrap.hidden{ display:none; }
+
+  .back-link{
+    font-family:'Chivo Mono', monospace; font-size:11px; text-transform:uppercase;
+    letter-spacing:0.08em; color:var(--gray-mid); cursor:pointer;
+    display:inline-flex; align-items:center; gap:6px; margin-bottom:36px;
+  }
+  .back-link:hover{ color:var(--black); }
+
+  .ficha-grid{ display:grid; grid-template-columns:1fr 1fr; gap:80px; max-width:1180px; margin:0 auto; }
+  @media (max-width:860px){ .ficha-grid{ grid-template-columns:1fr; gap:40px; } }
+
+  .ficha-photo-col{ position:sticky; top:24px; align-self:start; }
+  .ficha-photo{
+    background:var(--gray-bg); aspect-ratio:4/5; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 30px rgba(0,0,0,0.05); margin-bottom:14px;
+  }
+  .ficha-photo svg{ width:38%; height:38%; opacity:0.85; }
+  .ficha-photo-caption{ font-family:'Chivo Mono', monospace; font-size:10.5px; color:var(--gray-mid); display:flex; justify-content:space-between; }
+
+  /* Number is now the hero element of the ficha */
+  .ficha-number{
+    font-family:'Chivo Mono', monospace;
+    font-size:96px;
+    font-weight:500;
+    letter-spacing:-0.03em;
+    line-height:0.9;
+    margin-bottom:4px;
+  }
+  .ficha-cats{ display:flex; align-items:center; justify-content:space-between; margin-bottom:28px; }
+  .ficha-cats-left{ display:flex; gap:8px; }
+  .ficha-author{ display:flex; align-items:center; gap:8px; }
+  .ficha-author .author-avatar{ width:24px; height:24px; font-size:10px; }
+  .ficha-author-label{ font-family:'Chivo Mono', monospace; font-size:10.5px; color:var(--gray-mid); text-transform:uppercase; letter-spacing:0.04em; }
+  .ficha-author-label strong{ color:var(--black); font-weight:500; }
+  .ficha-title{
+    font-size:20px;
+    font-weight:600;
+    letter-spacing:0.01em;
+    text-transform:uppercase;
+    color:#444;
+    margin-bottom:4px;
+  }
+  .ficha-year{ font-family:'Chivo Mono', monospace; font-size:12px; color:var(--gray-mid); margin-bottom:20px; }
+
+  .ficha-share{ display:flex; align-items:center; gap:14px; margin-bottom:32px; }
+  .ficha-share-label{ font-size:9.5px; color:var(--gray-mid); letter-spacing:0.08em; }
+  .share-icon{
+    width:26px; height:26px; display:flex; align-items:center; justify-content:center;
+    border:1px solid var(--gray-line); border-radius:50%; cursor:pointer; transition:border-color 0.15s ease;
+  }
+  .share-icon:hover{ border-color:var(--black); }
+  .share-icon .material-symbols-outlined{ font-size:14px; }
+
+  .ficha-block{ margin-bottom:34px; }
+  .ficha-block-label{
+    font-size:10.5px; text-transform:uppercase; letter-spacing:0.14em; color:var(--gray-mid);
+    font-weight:600; margin-bottom:10px; display:flex; align-items:center; gap:10px;
+  }
+  .ficha-block-label::after{ content:''; flex:1; height:1px; background:var(--gray-line-soft); }
+  .ficha-intro{ font-size:19px; font-weight:400; line-height:1.55; letter-spacing:-0.005em; }
+  .ficha-desc{ font-size:14px; font-weight:400; line-height:1.75; color:#333; }
+
+  .spec-table{ width:100%; border-collapse:collapse; }
+  .spec-table tr{ border-bottom:1px solid var(--gray-line-soft); }
+  .spec-table tr:last-child{ border-bottom:none; }
+  .spec-table td{ padding:11px 0; font-size:13px; vertical-align:top; }
+  .spec-table td:first-child{ font-family:'Chivo Mono', monospace; color:var(--gray-mid); width:40%; text-transform:uppercase; font-size:10.5px; letter-spacing:0.06em; padding-top:14px; }
+  .status-tag{ display:inline-flex; align-items:center; gap:6px; font-family:'Chivo Mono', monospace; font-size:11px; padding:3px 8px; border:1px solid var(--black); }
+  .status-dot{ width:6px; height:6px; border-radius:50%; background:var(--black); }
+  .status-tag.discontinued{ border-color:var(--gray-mid); color:var(--gray-mid); }
+  .status-tag.discontinued .status-dot{ background:var(--gray-mid); }
+
+  .ficha-nav{
+    display:flex; justify-content:space-between; max-width:1180px; margin:60px auto 0; padding-top:24px;
+    border-top:1px solid var(--gray-line); font-family:'Chivo Mono', monospace; font-size:11px; color:var(--gray-mid);
+  }
+  .ficha-nav span{ cursor:pointer; }
+  .ficha-nav span:hover{ color:var(--black); }
+
+  /* ---------- MANIFIESTO ---------- */
+  .manifiesto-wrap{ max-width:1180px; margin:0 auto; padding:60px 40px 100px; }
+  .manifiesto-num{ font-family:'Chivo Mono', monospace; font-size:12px; color:var(--gray-mid); margin-bottom:20px; }
+  .manifiesto-title{ font-size:clamp(40px,6vw,72px); font-weight:800; letter-spacing:-0.03em; line-height:1; margin-bottom:44px; }
+  .manifiesto-grid{ display:grid; grid-template-columns:1.6fr 1fr; gap:80px; }
+  @media (max-width:860px){ .manifiesto-grid{ grid-template-columns:1fr; gap:40px; } }
+  .manifiesto-body p{ font-size:18px; line-height:1.7; margin-bottom:26px; color:#222; }
+  .manifiesto-body p.lead{ font-size:22px; font-weight:500; line-height:1.5; color:var(--black); }
+  .manifiesto-rule{ height:1px; background:var(--gray-line); margin:44px 0; }
+  .manifiesto-sign{ font-family:'Chivo Mono', monospace; font-size:12px; color:var(--gray-mid); text-transform:uppercase; letter-spacing:0.06em; }
+
+  .manifiesto-side{ padding-top:6px; }
+  .manifiesto-side-block{ margin-bottom:34px; }
+  .manifiesto-side-label{
+    font-size:10.5px; text-transform:uppercase; letter-spacing:0.14em; color:var(--gray-mid);
+    font-weight:600; margin-bottom:12px; display:flex; align-items:center; gap:10px;
+  }
+  .manifiesto-side-label::after{ content:''; flex:1; height:1px; background:var(--gray-line-soft); }
+  .manifiesto-side-block p{ font-size:14px; line-height:1.7; color:#333; margin:0; }
+  .manifiesto-stats{ display:flex; flex-direction:column; gap:10px; }
+  .manifiesto-stats .stat-row{ display:flex; justify-content:space-between; font-size:12.5px; border-bottom:1px solid var(--gray-line-soft); padding-bottom:8px; }
+  .manifiesto-stats .stat-row span:first-child{ color:var(--gray-mid); font-family:'Chivo Mono', monospace; font-size:10.5px; text-transform:uppercase; }
+  .manifiesto-side-links{ display:flex; flex-direction:column; gap:8px; font-family:'Chivo Mono', monospace; font-size:12px; }
+  .manifiesto-side-links a{ color:var(--black); text-decoration:none; border-bottom:1px solid var(--gray-line); padding-bottom:2px; width:fit-content; }
+  .manifiesto-side-links a:hover{ border-color:var(--black); }
+
+  footer{
+    padding:30px 40px; border-top:1px solid var(--gray-line); display:flex; justify-content:space-between;
+    font-family:'Chivo Mono', monospace; font-size:10.5px; color:var(--gray-mid);
+  }
+
+  .pagination-nav{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:24px 40px 0; margin:0 20px;
+    font-family:'Chivo Mono', monospace; font-size:12px; text-transform:uppercase; letter-spacing:0.06em;
+  }
+  .pagination-arrow{ color:var(--black); cursor:pointer; }
+  .pagination-arrow:hover{ text-decoration:underline; }
+  .pagination-arrow.disabled{ color:var(--gray-line); cursor:default; pointer-events:none; }
+  .pagination-count{ color:var(--gray-mid); font-size:11px; }
+
+  .proposal-tag{
+    position:fixed; bottom:18px; right:18px; background:var(--black); color:var(--white);
+    font-family:'Chivo Mono', monospace; font-size:10px; padding:7px 12px; letter-spacing:0.05em;
+    z-index:50; text-transform:uppercase;
+  }

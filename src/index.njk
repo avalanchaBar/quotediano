@@ -1,0 +1,50 @@
+---
+layout: base.njk
+title: Quotediano — Archivo Personal
+pagination:
+  data: collections.objetos
+  size: 12
+  alias: pageObjetos
+permalink: "{{ (pagination.pageNumber == 0) and '/index.html' or ('/pagina-' + (pagination.pageNumber + 1) + '/index.html') }}"
+---
+<div class="catalog-wrap">
+  <header class="site-header">
+    <div class="site-title">Quote<span class="accent">diano</span></div>
+    <p class="site-sub">Cien objetos de uso cotidiano, seleccionados a lo largo de una vida por su diseño, su forma o su función. Un archivo personal, no un catálogo de consumo.</p>
+    <div class="site-index-count">
+      <span class="mono">{{ collections.objetos.length }} REGISTRADOS</span>
+      <span class="mono">100 PREVISTOS</span>
+    </div>
+  </header>
+
+  <div class="section-label">
+    <span class="num mono">IDX</span>
+    <span class="title">Índice de objetos</span>
+    <span class="rule"></span>
+  </div>
+
+  <div class="catalog-grid">
+    {% for objeto in pageObjetos %}
+    <a class="entry-card" href="{{ objeto.url }}" style="text-decoration:none;color:inherit;">
+      <div class="entry-photo" style="background:#0a0a0a;">
+        <img src="/img/{{ objeto.data.numero }}-foto2.jpg" style="width:100%;height:100%;object-fit:cover;" alt="{{ objeto.data.numero }}"/>
+        <span class="entry-number-overlay">{{ objeto.data.numero }}</span>
+      </div>
+      <div class="entry-icons">
+        <div class="cat-icon" title="{{ objeto.data.categoria }}"><span class="material-symbols-outlined">{{ objeto.data.icono }}</span></div>
+        <div class="author-badge"><div class="author-avatar">{{ objeto.data.autorIniciales }}</div></div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+
+  <div class="pagination-nav">
+    {% if pagination.href.previous %}<a class="pagination-arrow" href="{{ pagination.href.previous }}">← Anteriores</a>{% else %}<span class="pagination-arrow disabled">← Anteriores</span>{% endif %}
+    <span class="pagination-count mono">Página {{ pagination.pageNumber + 1 }} / {{ pagination.pages.length }}</span>
+    {% if pagination.href.next %}<a class="pagination-arrow" href="{{ pagination.href.next }}">Siguientes →</a>{% else %}<span class="pagination-arrow disabled">Siguientes →</span>{% endif %}
+  </div>
+
+  <footer>
+    <span>QUOTEDIANO © — ARCHIVO EN CURSO</span>
+  </footer>
+</div>

@@ -1,0 +1,50 @@
+backend:
+  name: proxy
+  proxy_url: http://localhost:8081/api/v1
+
+local_backend: true
+
+media_folder: "public/img"
+public_folder: "/img"
+
+collections:
+  - name: "objetos"
+    label: "Objetos (Quotediano)"
+    label_singular: "Objeto"
+    folder: "src/objetos"
+    create: true
+    slug: "{{numero}}-{{slug}}"
+    identifier_field: nombre
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "ficha.njk" }
+      - { label: "Número (3 dígitos, ej. 005)", name: "numero", widget: "string", pattern: ['^\d{3}$', "Debe tener 3 dígitos, ej. 005"] }
+      - { label: "Permalink", name: "permalink", widget: "string", hint: "Ej: /005/index.html — usa el mismo número de arriba" }
+      - { label: "Nombre del objeto", name: "nombre", widget: "string" }
+      - label: "Categoría"
+        name: "categoria"
+        widget: "select"
+        options: ["Tecnología", "Textil", "Papelería", "Herramientas", "Hogar", "Moda", "Motor", "Misc"]
+      - label: "Icono (Material Symbols)"
+        name: "icono"
+        widget: "select"
+        options: ["devices", "checkroom", "stylus", "construction", "home", "diamond", "directions_car", "category", "radio", "watch", "content_cut", "local_fire_department", "local_cafe"]
+      - { label: "Iniciales del autor", name: "autorIniciales", widget: "string", default: "SS" }
+      - { label: "Nombre del autor", name: "autorNombre", widget: "string", default: "Sebastián Saavedra" }
+      - { label: "Año", name: "anio", widget: "string" }
+      - { label: "Origen", name: "origen", widget: "string" }
+      - { label: "Diseñador / marca", name: "disenador", widget: "string" }
+      - { label: "Material", name: "material", widget: "string" }
+      - label: "Estado"
+        name: "estado"
+        widget: "select"
+        options: ["produccion", "descontinuado"]
+      - { label: "Etiqueta de estado (texto visible)", name: "estadoLabel", widget: "string" }
+      - { label: "Etiqueta dato extra (opcional)", name: "datoExtraLabel", widget: "string", required: false }
+      - { label: "Dato extra (opcional)", name: "datoExtra", widget: "string", required: false }
+      - { label: "Nota personal (4-5 líneas)", name: "notaPersonal", widget: "text" }
+      - { label: "Descripción", name: "descripcion", widget: "text" }
+      - { label: "Dato curioso", name: "datoCurioso", widget: "text" }
+      - { label: "Nº anterior (ej. 004)", name: "anterior", widget: "string", required: false }
+      - { label: "Nº siguiente (ej. 006)", name: "siguiente", widget: "string", required: false }
+      - { label: "Foto 1 (foto-1-OK)", name: "foto1", widget: "image", required: false, hint: "Súbela con el nombre NNN-foto1.jpg" }
+      - { label: "Foto 2 (foto-2-OK)", name: "foto2", widget: "image", required: false, hint: "Súbela con el nombre NNN-foto2.jpg" }
