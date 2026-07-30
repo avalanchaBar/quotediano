@@ -1,6 +1,6 @@
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "public": "/" });
-eleventyConfig.addPassthroughCopy({ "src/js": "/js" });
+  eleventyConfig.addPassthroughCopy({ "src/js": "/js" });
 
   eleventyConfig.addCollection("objetos", function (collectionApi) {
     return collectionApi.getFilteredByGlob("src/objetos/*.md").sort((a, b) => {
