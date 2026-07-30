@@ -1,0 +1,29 @@
+---
+layout: base.njk
+title: Timeline
+permalink: /timeline/
+---
+<div class="page-title"><span class="a">Time</span><span class="b">line</span></div>
+<div class="page-sub mono">
+  {{ collections.objetos.length }} OBJETOS ·
+  {% set anios = [] %}
+  {% for obj in collections.objetos %}{% set _ = anios.push(obj.data.anio | int) %}{% endfor %}
+  {{ anios | min }} — {{ "now" | date("yyyy") }} · DESLIZA HORIZONTALMENTE →
+</div>
+
+<div class="tl-scroll">
+  <div class="tl-track-wrap" id="tlTrackWrap">
+    <div class="tl-line" id="tlLine"></div>
+    {% for obj in collections.objetos %}
+    <div class="tl-anchor" data-year="{{ obj.data.anio | int }}">
+      <div class="tl-dotted"></div>
+      <a class="tl-thumb" href="{{ obj.url }}" title="{{ obj.data.nombre }}">
+        <img src="/img/{{ obj.data.numero }}-foto1.jpg" alt="{{ obj.data.numero }}"/>
+      </a>
+    </div>
+    <span class="tl-year mono" data-year="{{ obj.data.anio | int }}">{{ obj.data.anio }}</span>
+    {% endfor %}
+  </div>
+</div>
+
+<script src="/js/timeline.js"></script>
