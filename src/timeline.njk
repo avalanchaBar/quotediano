@@ -8,7 +8,7 @@ permalink: /timeline/
   {{ collections.objetos.length }} OBJETOS ·
   {% set anios = [] %}
   {% for obj in collections.objetos %}{% set _ = anios.push(obj.data.anio | int) %}{% endfor %}
-  {{ anios | sort | first }} — {{ "now" | date("yyyy") }} · DESLIZA HORIZONTALMENTE →
+  {{ anios | sort | first }} — {{ anios | sort | last }} · DESLIZA HORIZONTALMENTE →
 </div>
 
 <div class="tl-scroll">
