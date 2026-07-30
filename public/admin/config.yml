@@ -23,11 +23,11 @@ collections:
       - label: "Categoría"
         name: "categoria"
         widget: "select"
-        options: ["Tecnología", "Textil", "Papelería", "Herramientas", "Hogar", "Moda", "Motor", "Misc"]
+        options: ["Tecnología", "Textil", "Papelería", "Herramientas", "Hogar", "Moda", "Motor", "Misc", "Editorial", "Música"]
       - label: "Icono (Material Symbols)"
         name: "icono"
         widget: "select"
-        options: ["devices", "checkroom", "stylus", "construction", "home", "diamond", "directions_car", "category", "radio", "watch", "content_cut", "local_fire_department", "local_cafe"]
+        options: ["devices", "checkroom", "stylus", "construction", "home", "diamond", "directions_car", "category", "radio", "watch", "content_cut", "local_fire_department", "local_cafe", "two_wheeler", "album", "menu_book", "music_note"]
       - { label: "Iniciales del autor", name: "autorIniciales", widget: "string", default: "SS" }
       - { label: "Nombre del autor", name: "autorNombre", widget: "string", default: "Sebastián Saavedra" }
       - { label: "Año", name: "anio", widget: "string" }
