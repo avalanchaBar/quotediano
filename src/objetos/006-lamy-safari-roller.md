@@ -5,8 +5,7 @@ permalink: /006/index.html
 nombre: LAMY Safari Roller
 categoria: Papelería
 icono: stylus
-autorIniciales: SS
-autorNombre: Sebastián Saavedra
+autor: "sebastian"
 anio: "1980"
 origen: Heidelberg, Alemania
 disenador: WOLFGANG FABIAN Y PROF. DR. BERNT SPIEGEL — DEVELOPMENT GROUP MANNHEIM
