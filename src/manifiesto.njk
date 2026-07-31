@@ -2,34 +2,62 @@
 layout: base.njk
 permalink: "/manifiesto/index.html"
 ---
+{% macro personaCard(persona) %}
+<div class="persona-card">
+<div class="persona-head">
+<div class="persona-avatar">{{ persona.iniciales }}</div>
+<div>
+<div class="persona-role mono">{{ persona.cargo | upper }}</div>
+<div class="persona-name">{{ persona.nombre }}</div>
+</div>
+</div>
+<p class="persona-bio">{{ persona.bio }}</p>
+<div class="persona-links mono">
+{% if persona.email %}<a href="mailto:{{ persona.email }}">E-mail</a>{% endif %}
+{% if persona.linkedin %} · <a href="{{ persona.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>{% endif %}
+{% if persona.instagram %} · <a href="{{ persona.instagram }}" target="_blank" rel="noopener">IG</a>{% endif %}
+</div>
+</div>
+{% endmacro %}
+
 <div class="manifiesto-wrap active" style="display:block;">
-  <a class="back-link" href="/" style="text-decoration:none;">← Volver al índice</a>
-  <div class="manifiesto-num mono">000 — MANIFIESTO</div>
-  <div class="manifiesto-title">Por qué esto importa.</div>
+<a class="back-link" href="/" style="text-decoration:none;">← Volver al índice</a>
+<div class="manifiesto-num mono">000 — MANIFIESTO</div>
+<div class="manifiesto-title">Por qué esto importa.</div>
 
-  <div class="manifiesto-grid">
-    <div class="manifiesto-body">
-      <p class="lead">Quotediano no es una colección de objetos bonitos. Es un archivo personal de lo que me ha acompañado y me acompaña aún hoy. Objetos que han sobrevivido al tiempo y a mi propio uso.</p>
-      <p>Cada entrada de este archivo lleva un número. No pretende ordenar nada: no es racional ni temporal, sucede.</p>
-      <p>Vivimos rodeados de objetos —la mayoría que no elegimos—, nos los regalan, los heredamos, los compramos por costumbre. Este archivo es lo contrario: el registro de lo que sí elegí —por diseño, por funcionalidad— bien porque llegó a mi vida como regalo, bien porque lo busqué yo. En muchos casos, la elección se convirtió en repetición: una y otra vez, durante años. Algunos de ellos me acompañan aún; la mayoría —no todos— se siguen produciendo, y eso demuestra que soportan el paso del tiempo: han sido pensados, diseñados y escogidos. En un mundo de "no cosas" y de consumo desorbitado, me importa elegir bien "las cosas" que me acompañan día a día.</p>
-      <p>No hay aquí opinión de experto ni review de producto. Hay una fecha, una razón personal, y una descripción tan neutra como la de un catálogo científico —porque lo que quiero mostrar no es "esto es bueno", sino "esto existe, así, y por esto me importó".</p>
-      <p>Es también un reto, y una manera de que no se me olviden, y por supuesto de compartirlos: algún y alguna amante del objeto se sentirá representado por lo que aquí aparece, en este diario personal de objetos. Cien objetos. Ni uno más. El límite es la disciplina del proyecto.</p>
-      <div class="manifiesto-rule"></div>
-      <div class="manifiesto-sign">Sebastián Saavedra — Barcelona</div>
-    </div>
+<div class="manifiesto-grid">
+<div class="manifiesto-body">
+<p class="lead">Quotediano no es una colección de objetos bonitos. Es un archivo personal de lo que me ha acompañado y me acompaña aún hoy. Objetos que han sobrevivido al tiempo y a mi propio uso.</p>
+<p>Cada entrada de este archivo lleva un número. No pretende ordenar nada: no es racional ni temporal, sucede.</p>
+<p>Vivimos rodeados de objetos —la mayoría que no elegimos—, nos los regalan, los heredamos, los compramos por costumbre. Este archivo es lo contrario: el registro de lo que sí elegí —por diseño, por funcionalidad— bien porque llegó a mi vida como regalo, bien porque lo busqué yo. En muchos casos, la elección se convirtió en repetición: una y otra vez, durante años. Algunos de ellos me acompañan aún; la mayoría —no todos— se siguen produciendo, y eso demuestra que soportan el paso del tiempo: han sido pensados, diseñados y escogidos. En un mundo de "no cosas" y de consumo desorbitado, me importa elegir bien "las cosas" que me acompañan día a día.</p>
+<p>No hay aquí opinión de experto ni review de producto. Hay una fecha, una razón personal, y una descripción tan neutra como la de un catálogo científico —porque lo que quiero mostrar no es "esto es bueno", sino "esto existe, así, y por esto me importó".</p>
+<p>Es también un reto, y una manera de que no se me olviden, y por supuesto de compartirlos: algún y alguna amante del objeto se sentirá representado por lo que aquí aparece, en este diario personal de objetos. Cien objetos. Ni uno más. El límite es la disciplina del proyecto.</p>
+<div class="manifiesto-rule"></div>
+<div class="manifiesto-sign">Sebastián Saavedra — Barcelona</div>
+</div>
 
-    <div class="manifiesto-side">
-      <div class="manifiesto-side-block">
-        <div class="manifiesto-side-label">Bio</div>
-        <p>Diseñador y director de arte. Veinte años observando objetos antes de aprender a hacerlos bien.</p>
-      </div>
-      <div class="manifiesto-side-block">
-        <div class="manifiesto-side-label">El archivo, en cifras</div>
-        <div class="manifiesto-stats">
-          <div class="stat-row"><span>Entradas</span><span>{{ collections.objetos.length }} / 100</span></div>
-          <div class="stat-row"><span>Autores</span><span>1 (Autor 01)</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
+<div class="manifiesto-side">
+<div class="manifiesto-side-block">
+<div class="manifiesto-side-label">Editor</div>
+{% for key, persona in personas %}{% if persona.cargo == "Editor" %}{{ personaCard(persona) }}{% endif %}{% endfor %}
+</div>
+
+{% set autoresList = [] %}
+{% for key, persona in personas %}{% if persona.cargo != "Editor" %}{% set _ = autoresList.push(persona) %}{% endif %}{% endfor %}
+{% if autoresList.length > 0 %}
+<div class="manifiesto-side-block">
+<div class="manifiesto-side-label">Autores</div>
+{% for persona in autoresList %}{{ personaCard(persona) }}{% endfor %}
+</div>
+{% endif %}
+
+<div class="manifiesto-side-block">
+<div class="manifiesto-side-label">El archivo, en cifras</div>
+<div class="manifiesto-stats">
+<div class="stat-row"><span>Entradas</span><span>{{ collections.objetos.length }} / 100</span></div>
+<div class="stat-row"><span>Autores</span><span>{{ autoresList.length }}</span></div>
+</div>
+</div>
+</div>
+</div>
 </div>
