@@ -5,8 +5,7 @@ permalink: /005/index.html
 nombre: Technics SL-1200 (original)
 categoria: Tecnología
 icono: radio
-autorIniciales: SS
-autorNombre: Sebastián Saavedra
+autor: "sebastian"
 anio: "1972"
 origen: Osake, Japón
 disenador: EQUIPO LIDERADO POR SHUICHI OBATA — MATSUSHITA ELECTRIC (TECHNICS)
