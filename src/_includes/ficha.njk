@@ -20,9 +20,8 @@ layout: base.njk
           <div class="cat-icon" title="{{ categoria }}"><span class="material-symbols-outlined">{{ icono }}</span></div>
         </div>
         <div class="ficha-author">
-          <div class="author-avatar">{{ autorIniciales }}</div>
-          <span class="ficha-author-label">Autor 01 — <strong>{{ autorNombre }}</strong></span>
-        </div>
+          <div class="author-avatar">{{ personas[autor].iniciales }}</div>
+<span class="ficha-author-label">{{ personas[autor].cargo | upper }} — <strong>{{ personas[autor].nombre }}</strong></span></div>
       </div>
       <div class="ficha-title">{{ nombre }}</div>
       <div class="ficha-year mono">{{ origen }} — {{ anio }} — DISEÑO: {{ disenador }}</div>
