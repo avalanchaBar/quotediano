@@ -5,7 +5,6 @@ permalink: /008/index.html
 nombre: Apple — iPod (3ª generación) 15GB
 categoria: Misc
 autor: "sebastian"
-autorNombre: Sebastián Saavedra
 anio: "2003"
 origen: Cupertino, California (diseño) — Apple Computer
 disenador: APPLE INDUSTRIAL DESIGN GROUP, BAJO JONATHAN IVE
