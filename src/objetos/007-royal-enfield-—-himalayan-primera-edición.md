@@ -5,8 +5,7 @@ permalink: /007/index.html
 nombre: Royal Enfield — Himalayan (primera edición)
 categoria: Motor
 icono: directions_car
-autorIniciales: SS
-autorNombre: Sebastián Saavedra
+autor: "sebastian"
 anio: "2016"
 origen: Chennai, India — chasis desarrollado por Harris Performance (Reino Unido)
 disenador: PIERRE TERBLANCHE (DIRECCIÓN DE DISEÑO) — ROYAL ENFIELD, BAJO CEO
