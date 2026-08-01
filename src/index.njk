@@ -17,11 +17,13 @@ permalink: "{{ (pagination.pageNumber == 0) and '/index.html' or ('/pagina-' + (
     </div>
   </header>
 
+
   <div class="section-label">
     <span class="num mono">IDX</span>
     <span class="title">Índice de objetos</span>
     <span class="rule"></span>
   </div>
+
 
   <div class="catalog-grid">
     {% for objeto in pageObjetos %}
@@ -31,12 +33,13 @@ permalink: "{{ (pagination.pageNumber == 0) and '/index.html' or ('/pagina-' + (
         <span class="entry-number-overlay">{{ objeto.data.numero }}</span>
       </div>
       <div class="entry-icons">
-        <div class="cat-icon" title="{{ objeto.data.categoria }}"><span class="material-symbols-outlined">{{ objeto.data.icono }}</span></div>
+        <div class="cat-icon" title="{{ objeto.data.categoria }}">{{ objeto.data.icono | icon | safe }}</div>
         <div class="author-badge"><div class="author-avatar">{{ objeto.data.autorIniciales }}</div></div>
       </div>
     </a>
     {% endfor %}
   </div>
+
 
   <div class="pagination-nav">
     {% if pagination.href.previous %}<a class="pagination-arrow" href="{{ pagination.href.previous }}">← Anteriores</a>{% else %}<span class="pagination-arrow disabled">← Anteriores</span>{% endif %}
@@ -44,7 +47,9 @@ permalink: "{{ (pagination.pageNumber == 0) and '/index.html' or ('/pagina-' + (
     {% if pagination.href.next %}<a class="pagination-arrow" href="{{ pagination.href.next }}">Siguientes →</a>{% else %}<span class="pagination-arrow disabled">Siguientes →</span>{% endif %}
   </div>
 
+
   <footer>
     <span>QUOTEDIANO © — ARCHIVO EN CURSO</span>
   </footer>
 </div>
+
