@@ -271,7 +271,7 @@
 }
 .persona-role{ font-size:9.5px; letter-spacing:0.1em; color:var(--gray-mid); text-transform:uppercase; }
 .persona-name{ font-size:14px; font-weight:700; }
-.persona-bio{ font-size:13px; line-height:1.65; color:#333; margin-bottom:18px; }
+.persona-bio{ font-size:13px; line-height:1.65; color:#333; margin-bottom:26px; }
 .persona-links{ font-size:11px; color:var(--gray-mid); }
 .persona-links a{ color:var(--gray-mid); text-decoration:none; }
 .persona-links a:hover{ color:var(--black); }
