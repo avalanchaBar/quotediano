@@ -11,7 +11,7 @@ permalink: "/manifiesto/index.html"
 <div class="persona-name">{{ persona.nombre }}</div>
 </div>
 </div>
-<p class="persona-bio">{{ persona.bio }}</p>
+<p class="persona-bio">{{ persona.bio | safe }}</p>
 <div class="persona-links mono">
 {% if persona.email %}<a href="mailto:{{ persona.email }}">E-mail</a>{% endif %}
 {% if persona.linkedin %} · <a href="{{ persona.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>{% endif %}
@@ -20,10 +20,12 @@ permalink: "/manifiesto/index.html"
 </div>
 {% endmacro %}
 
+
 <div class="manifiesto-wrap active" style="display:block;">
 <a class="back-link" href="/" style="text-decoration:none;">← Volver al índice</a>
 <div class="manifiesto-num mono">000 — MANIFIESTO</div>
 <div class="manifiesto-title">Por qué esto importa.</div>
+
 
 <div class="manifiesto-grid">
 <div class="manifiesto-body">
@@ -36,11 +38,13 @@ permalink: "/manifiesto/index.html"
 <div class="manifiesto-sign">Sebastián Saavedra — Barcelona</div>
 </div>
 
+
 <div class="manifiesto-side">
 <div class="manifiesto-side-block">
 <div class="manifiesto-side-label">Editor</div>
 {% for key, persona in personas %}{% if persona.cargo == "Editor" %}{{ personaCard(persona) }}{% endif %}{% endfor %}
 </div>
+
 
 {% set autoresList = [] %}
 {% for key, persona in personas %}{% if persona.cargo != "Editor" %}{% set _ = autoresList.push(persona) %}{% endif %}{% endfor %}
@@ -50,6 +54,7 @@ permalink: "/manifiesto/index.html"
 {% for persona in autoresList %}{{ personaCard(persona) }}{% endfor %}
 </div>
 {% endif %}
+
 
 <div class="manifiesto-side-block">
 <div class="manifiesto-side-label">El archivo, en cifras</div>
@@ -61,3 +66,4 @@ permalink: "/manifiesto/index.html"
 </div>
 </div>
 </div>
+
