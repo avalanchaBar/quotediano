@@ -241,6 +241,10 @@
 }
 
 
+.page-title{ padding:40px 40px 0; font-size:clamp(32px,5vw,56px); font-weight:700; letter-spacing:-1px; line-height:1; }
+.page-title .a{ font-weight:700; }
+.page-title .b{ font-weight:400; }
+.page-sub{ padding:0 40px; margin-top:14px; color:var(--gray-mid); font-size:11px; text-transform:uppercase; letter-spacing:0.08em; }
 .tl-scroll{
   overflow-x: auto;
   overflow-y: visible;
@@ -267,7 +271,7 @@
 }
 .persona-role{ font-size:9.5px; letter-spacing:0.1em; color:var(--gray-mid); text-transform:uppercase; }
 .persona-name{ font-size:14px; font-weight:700; }
-.persona-bio{ font-size:13px; line-height:1.65; color:#333; margin-bottom:10px; }
+.persona-bio{ font-size:13px; line-height:1.65; color:#333; margin-bottom:18px; }
 .persona-links{ font-size:11px; color:var(--gray-mid); }
 .persona-links a{ color:var(--gray-mid); text-decoration:none; }
 .persona-links a:hover{ color:var(--black); }
