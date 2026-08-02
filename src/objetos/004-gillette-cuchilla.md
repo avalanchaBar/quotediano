@@ -1,6 +1,5 @@
 ---
 layout: ficha.njk
-permalink: "/004/index.html"
 numero: "004"
 nombre: "GILLETTE — Cuchilla de afeitar"
 categoria: "Herramienta"
