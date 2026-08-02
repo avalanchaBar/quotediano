@@ -34,7 +34,7 @@ permalink: "{{ (pagination.pageNumber == 0) and '/index.html' or ('/pagina-' + (
       </div>
       <div class="entry-icons">
         <div class="cat-icon" title="{{ objeto.data.categoria }}">{{ objeto.data.icono | icon | safe }}</div>
-        <div class="author-badge"><div class="author-avatar">{{ objeto.data.autorIniciales }}</div></div>
+        <div class="author-badge"><div class="author-avatar">{{ personas[objeto.data.autor].iniciales }}</div></div>
       </div>
     </a>
     {% endfor %}
