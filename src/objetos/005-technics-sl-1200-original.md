@@ -1,7 +1,6 @@
 ---
 layout: ficha.njk
 numero: "005"
-permalink: /005/index.html
 nombre: Technics SL-1200 (original)
 categoria: Tecnología
 icono: radio
