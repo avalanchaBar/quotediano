@@ -68,10 +68,15 @@ layout: base.njk
   </div>
 
 
+  {% set idxActual = -1 %}
+  {% for obj in collections.objetos %}{% if obj.data.numero == numero %}{% set idxActual = loop.index0 %}{% endif %}{% endfor %}
+  {% set objAnterior = collections.objetos[idxActual - 1] if idxActual > 0 else null %}
+  {% set objSiguiente = collections.objetos[idxActual + 1] if idxActual > -1 and idxActual < (collections.objetos.length - 1) else null %}
   <div class="ficha-nav">
-    {% if anterior %}<a href="/{{ anterior }}/" style="color:inherit;text-decoration:none;">← {{ anterior }} — ANTERIOR</a>{% else %}<span></span>{% endif %}
+    {% if objAnterior %}<a href="{{ objAnterior.url }}" style="color:inherit;text-decoration:none;">← {{ objAnterior.data.numero }} — ANTERIOR</a>{% else %}<span></span>{% endif %}
     <span class="mono">{{ numero }} / 100</span>
-    {% if siguiente %}<a href="/{{ siguiente }}/" style="color:inherit;text-decoration:none;">{{ siguiente }} — SIGUIENTE →</a>{% else %}<span></span>{% endif %}
+    {% if objSiguiente %}<a href="{{ objSiguiente.url }}" style="color:inherit;text-decoration:none;">{{ objSiguiente.data.numero }} — SIGUIENTE →</a>{% else %}<span></span>{% endif %}
   </div>
-</div>
+div>
 
+</
