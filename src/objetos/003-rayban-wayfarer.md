@@ -1,6 +1,5 @@
 ---
 layout: ficha.njk
-permalink: "/003/index.html"
 numero: "003"
 nombre: "RAY-BAN — Wayfarer"
 categoria: "Moda"

@@ -1,0 +1,21 @@
+---
+pagination:
+  data: collections.objetos
+  size: 1
+  alias: obj
+permalink: "/{{ obj.data.numero }}/index.html"
+eleventyExcludeFromCollections: true
+layout: false
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="refresh" content="0; url={{ obj.url }}">
+<link rel="canonical" href="{{ obj.url }}">
+<title>Quotediano — redirigiendo…</title>
+</head>
+<body>
+<p>Esta p&aacute;gina se ha movido. <a href="{{ obj.url }}">Contin&uacute;a aqu&iacute;</a>.</p>
+</body>
+</html>

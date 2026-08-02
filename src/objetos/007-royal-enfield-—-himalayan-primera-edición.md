@@ -1,7 +1,6 @@
 ---
 layout: ficha.njk
 numero: "007"
-permalink: /007/index.html
 nombre: Royal Enfield — Himalayan (primera edición)
 categoria: Motor
 icono: directions_car

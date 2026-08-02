@@ -1,6 +1,5 @@
 ---
 layout: ficha.njk
-permalink: "/001/index.html"
 numero: "001"
 nombre: "BIC — Encendedor de gas"
 categoria: "Herramienta"

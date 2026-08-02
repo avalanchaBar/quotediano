@@ -1,7 +1,6 @@
 ---
 layout: ficha.njk
 numero: "008"
-permalink: /008/index.html
 nombre: Apple — iPod (3ª generación) 15GB
 categoria: Misc
 autor: "sebastian"

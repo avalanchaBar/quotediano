@@ -1,7 +1,6 @@
 ---
 layout: ficha.njk
 numero: "006"
-permalink: /006/index.html
 nombre: LAMY Safari Roller
 categoria: Papelería
 icono: stylus
