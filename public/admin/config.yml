@@ -18,7 +18,6 @@ collections:
     fields:
       - { label: "Layout", name: "layout", widget: "hidden", default: "ficha.njk" }
       - { label: "Número (3 dígitos, ej. 005)", name: "numero", widget: "string", pattern: ['^\d{3}$', "Debe tener 3 dígitos, ej. 005"] }
-      - { label: "Permalink", name: "permalink", widget: "string", hint: "Ej: /005/index.html — usa el mismo número de arriba" }
       - { label: "Nombre del objeto", name: "nombre", widget: "string" }
       - label: "Categoría"
         name: "categoria"
