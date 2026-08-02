@@ -3,6 +3,7 @@ layout: ficha.njk
 numero: "008"
 nombre: Apple — iPod (3ª generación) 15GB
 categoria: Misc
+icono: "devices"
 autor: "sebastian"
 anio: "2003"
 origen: Cupertino, California (diseño) — Apple Computer
