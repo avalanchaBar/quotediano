@@ -1,6 +1,5 @@
 ---
 layout: ficha.njk
-permalink: "/002/index.html"
 numero: "002"
 nombre: "SONY — MD Walkman (MZ-R70)"
 categoria: "Tecnología"
