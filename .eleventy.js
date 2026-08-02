@@ -25,7 +25,15 @@ module.exports = function (eleventyConfig) {
     return ICONS[name] || "";
   });
 
-  eleventyConfig.addCollection("objetos", function (collectionApi) {
+    eleventyConfig.addFilter("slug", function (str) {
+    return String(str || "")
+      .toLowerCase()
+      .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+  });
+
+eleventyConfig.addCollection("objetos", function (collectionApi) {
     return collectionApi.getFilteredByGlob("src/objetos/*.md").sort((a, b) => {
       return a.data.numero.localeCompare(b.data.numero);
     });
