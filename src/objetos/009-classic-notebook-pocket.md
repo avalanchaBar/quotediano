@@ -1,6 +1,7 @@
 ---
 layout: ficha.njk
 numero: "009"
+autor: "sebastian"
 permalink: /009/index.html
 nombre: Classic Notebook (Pocket)
 categoria: Papelería
@@ -35,6 +36,6 @@ datoCurioso: "El nombre no lo inventó Moleskine: lo acuñó el escritor Bruce
   después, la italiana Maria Sebregondi leyó ese pasaje y decidió resucitar el
   objeto: así nació Moleskine en 1997, de la mano de Modo & Modo."
 anterior: "008"
-foto1: /img/009-foto1.jpeg
+foto1: /img/009-foto1.jpg
 foto2: /img/009-foto2.jpg
 ---
