@@ -160,6 +160,7 @@
   .share-icon:hover{ border-color:var(--black); }
   .share-icon svg{ width:14px; height:14px; }
 
+  .share-icon.share-icon-active{ border-color:var(--black); background:var(--black); color:#fff; }
   .ficha-block{ margin-bottom:34px; }
   .ficha-block-label{
     font-size:10.5px; text-transform:uppercase; letter-spacing:0.14em; color:var(--gray-mid);
