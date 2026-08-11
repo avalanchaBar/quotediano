@@ -30,10 +30,10 @@ layout: base.njk
 
       <div class="ficha-share">
         <span class="ficha-share-label mono">COMPARTIR</span>
-        <span class="share-icon" title="Copiar enlace">{{ "link" | icon | safe }}</span>
-        <span class="share-icon" title="Pinterest">{{ "push_pin" | icon | safe }}</span>
-        <span class="share-icon" title="X (Twitter)">{{ "tag" | icon | safe }}</span>
-      </div>
+      <span class="share-icon" title="Copiar enlace" data-share="copy">{{ "link" | icon | safe }}</span>
+    <span class="share-icon" title="Pinterest" data-share="pinterest" data-image="/img/{{ numero }}-foto1.jpg" data-desc="{{ nombre }} — Quotediano">{{ "push_pin" | icon | safe }}</span>
+    <span class="share-icon" title="X (Twitter)" data-share="x" data-text="{{ nombre }} — Quotediano">{{ "tag" | icon | safe }}</span>
+</div>
 
 
       <div class="ficha-block">
